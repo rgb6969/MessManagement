@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mess Management System</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+    body,
+    input {
+      font-family: "Poppins", sans-serif;
+      background:#ffd8b8; 
+    }
+
+    .wrapper {
+     width: 100vw;
+     height: 100vh;
+     background:#ffd8b8;
+     float: left; 
+   }
+   .left-panel {
+    background: url(food.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    border-bottom-right-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    position: relative;
+  }
+
+  .photobox {
+    height: 100%;
+    width: 100%;
+    background: #fff2e7;
+    height: 100vh;
+    border-bottom-right-radius: 100%;
+    opacity: 0.6;
+    position: absolute;
+  }
+  .signupbox {
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+    position: absolute;
+  }
+
+  .signupbox h5 {
+    margin-bottom: 10px;
+  }
+
+  .right-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .signin {
+    padding: 10px;
+    font-size: 1.5em;
+    font-weight: 700;
+    width: 50%;
+  }
+
+  .title {
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  .input-field {
+    background-color: #fff2e7;
+    margin-top: 20px;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: 0 0.4rem;
+  }
+
+  .input-field i {
+    text-align: center;
+    line-height: 55px;
+    color: #acacac;
+    font-size: 1.1rem;
+  }
+
+  .input-field input {
+    background: none;
+    outline: none;
+    border: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+  }
+
+  .input-field input::placeholder {
+    color: #aaa;
+    font-weight: 600;
+  }
+
+  .btn {
+    width: 150px;
+    background-color: black;
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    color: white;
+  }
+
+  a {
+    text-decoration: none;
+    color: white !important;
+  }
+
+  .forgot_password {
+    color: black !important;
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+    text-align: end;
+    margin: 10px;
+  }
+
+  .forgot_password:hover {
+    font-weight: 700;
+  }
+
+  @media (min-width: 901px) and (max-width: 1100px) {
+    .signin {
+      width: 65%;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .signin {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .left-panel {
+      height: 50vh;
+    }
+    .photobox {
+      height: 50vh;
+    }
+    .signin {
+      width: 60%;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="container-fluid wrapper">
+    <div class="row">
+      <div class="col-md-6 left-panel">
+        <div class="photobox"></div>
+        <div class="signupbox">
+          <h2>New here?</h2>
+          <h5>Get started!</h5>
+          <a href="register.html"><button type="button" class="btn solid">Sign up</button> </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 right-panel">
+        <div class="signin">
+          <form class="sign-in-form">
+            <h1 class="title">Sign in</h1>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" id="rollno" placeholder="Roll Number" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" />
+            </div>
+            <a href="passwordforget_checkemail.html" class="forgot_password">Forgot password?</a>
+            <a href="user.html"><button type="button"  class="btn solid">login</button></a> 
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+  <script>
+
+
+
+    document.getElementById('rollno').addEventListener('keydown', function(e) {
+      var key   = e.keyCode ? e.keyCode : e.which;
+
+      if (!( [8, 9, 13, 27, 46, 110, 190].indexOf(key) !== -1 ||
+       (key == 65 && ( e.ctrlKey || e.metaKey  ) ) || 
+       (key >= 35 && key <= 40) ||
+       (key >= 48 && key <= 57 && !(e.shiftKey || e.altKey)) ||
+       (key >= 96 && key <= 105)
+       )) e.preventDefault();
+    });
+
+  </script>
+</body>
+</html>
