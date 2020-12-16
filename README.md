@@ -1,2 +1,2 @@
 # MessManagement
-Mess Management wepapp
+Mess Management webapp
