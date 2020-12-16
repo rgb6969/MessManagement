@@ -1,0 +1,162 @@
+.navbar-dark .navbar-nav .nav-link{
+    color:#fff;
+    font-size: 17px;
+    padding :5px 0px;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover{
+    color:#fcf8ec;
+  }
+  .navbar-dark .navbar-brand{
+    color:#fcf8ec;
+  }
+  .navbar-dark .navbar-brand:hover{
+    color:#fcf8ec;
+  }
+
+  .date_wrapper {
+    padding: 20px;
+    background:#fcf8ec;
+    
+  }
+
+  .calendar_box {
+    height: 280px;
+  }
+
+  .calendar {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .date_outter_box {
+    padding: 20px;
+    height: 280px;
+  }
+
+  .date_box {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #212529;
+  }
+
+  .fas {
+    font-size: 2rem;
+    margin: auto 15px;
+    color: #212529;
+  }
+
+  #features{
+    background-color: #212529;
+    width: 100%;
+    text-align: center;
+  }
+  .feature-box{
+    text-align: center;
+    padding: 40px 50px;
+  }
+
+  .card {
+    background: transparent;
+    color: white;
+    border: none;
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #fcf8ec;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .ui-datepicker-current-day .ui-state-active { background: #212529; border: none; color: white; text-align: center; }
+ 
+
+  .meal_box:hover .overlay {
+    opacity: 0.9;
+  }
+
+  .meal_box:hover .overlay h4 {
+    animation: heading 0.5s ease-out;
+  }
+
+  .meal_box:hover .overlay a {
+    animation: project-link 0.5s ease-out;
+  }
+
+  @keyframes heading {
+    0% {
+      transform: translate(0,-100px);
+    }
+    100% {
+      transform: translate(0,0);
+    }
+
+  }
+
+  @keyframes project-link {
+    0% {
+      transform: translate(0,100px);
+    }
+    100% {
+      transform: translate(0,0);
+    }
+
+  }
+
+  .meal_submit_button {
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .card-img-top {
+      width: 100%;
+      height: 250px;
+    }
+
+    .nav-icon {
+      display: none;
+    }
+
+    .navbar-collapse ul,.navbar-nav {
+      text-align: center;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+      padding: 10px;
+    }
+
+    .ms-1 {
+     margin-left: 0!important; 
+   }
+
+   .me-3 {
+     margin-right: 0!important; 
+   }
+   .navbar-toggler:focus,
+   .navbar-toggler:active,
+   .navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}

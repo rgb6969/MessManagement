@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mess Management System</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="register.css">
+ 
+</head>
+<body>
+
+  <div class="container-fluid wrapper">
+    <div class="row">
+      <div class="col-md-6 left-panel">
+        <div class="photobox"></div>
+        <div class="signupbox">
+          <h2>Already a user!</h2>
+          <a href="login.html"><button type="button" class="btn solid">login</button> </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 right-panel">
+        <div class="signin">
+          <form class="sign-in-form">
+            <h1 class="title">Sign up</h1>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Name" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" id="rollno" placeholder="Roll Number" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-at"></i>
+            <input type="email" placeholder="Email" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-address-book"></i>
+            <input type="contact" id="contact" placeholder="Contact" />
+          </div>
+          <a href="login.html"><button type="button" class="btn solid">REGISTER</button> </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    
+      <script>
+          
+
+
+  document.getElementById('rollno').addEventListener('keydown', function(e) {
+    var key   = e.keyCode ? e.keyCode : e.which;
+
+    if (!( [8, 9, 13, 27, 46, 110, 190].indexOf(key) !== -1 ||
+         (key == 65 && ( e.ctrlKey || e.metaKey  ) ) || 
+         (key >= 35 && key <= 40) ||
+         (key >= 48 && key <= 57 && !(e.shiftKey || e.altKey)) ||
+         (key >= 96 && key <= 105)
+       )) e.preventDefault();
+});
+  document.getElementById('contact').addEventListener('keydown', function(e) {
+    var key   = e.keyCode ? e.keyCode : e.which;
+
+    if (!( [8, 9, 13, 27, 46, 110, 190].indexOf(key) !== -1 ||
+         (key == 65 && ( e.ctrlKey || e.metaKey  ) ) || 
+         (key >= 35 && key <= 40) ||
+         (key >= 48 && key <= 57 && !(e.shiftKey || e.altKey)) ||
+         (key >= 96 && key <= 105)
+       )) e.preventDefault();
+});
+
+</script>
+</body>
+</html>
