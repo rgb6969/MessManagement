@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <title>Mess Management</title>
+  <link rel="icon" href="favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<style>
+  body {
+    background: url(lmo.jpg);
+    background-repeat: no-repeat;  
+    background-position: 0% 0%;
+    background-size: 100vw 100vh;
+  }
+
+  nav {
+    background: #f05454;
+  }
+  .navbar-dark .navbar-nav .nav-link{
+    color:#fff;
+    font-size: 17px;
+    padding :5px 0px;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover{
+    color:#fcf8ec;
+  }
+  .navbar-dark .navbar-brand{
+    color:#fcf8ec;
+  }
+  .navbar-dark .navbar-brand:hover{
+    color:#fcf8ec;
+  }
+
+  .datewrapper {
+    color: white;
+    /*position: absolute;
+    top: 200px;
+    left: 400px;*/
+    align-items: center;
+    text-align: center;
+    margin-left: 20vw;
+    margin-top: 20vh;
+    float: left;
+  }
+
+  .date {
+    margin-bottom: 30px;
+  }
+
+  .ui-datepicker-current-day .ui-state-active { background: #212529; border: none; color: white; text-align: center; }
+
+  .databox {
+    /*text-align: center;
+    align-items: center;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /*position: absolute;
+    top: 270px;
+    left: 950px;*/
+    padding: 10px;
+    margin-left: 46vw;
+    margin-top: 25vh;
+  }
+
+  div.ui-datepicker{
+    font-size:1vw;
+  }
+
+  .datacontainer {
+    height: 70px;
+    width: 25vw;
+    border: 1px solid black;
+    color: white;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+
+  .meal {
+    width: 60%;
+    background-color: #c59e51;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1.5px solid black;
+    font-size: 1.5em;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  .detbox {
+    width: 40%;
+    height: 100%;
+    background-color: #c59e51;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .data {
+    font-size: 1.3em;
+  }
+
+  .det {
+    cursor: pointer;
+    color: black;
+  }
+
+
+  @media (max-width: 1050px) {
+    div.ui-datepicker{
+     font-size:1.3vw;
+   }
+
+   .datewrapper {
+    margin-left: 19vw;
+  }
+}
+
+@media (max-width: 850px) {
+  div.ui-datepicker{
+    font-size:1.5vw;
+  }
+}
+@media (max-width: 650px) {
+  div.ui-datepicker{
+    font-size:1.8vw;
+  }
+  .datewrapper {
+    margin-left: 17vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-img-top {
+    width: 100%;
+    height: 250px;
+  }
+
+  .nav-icon {
+    display: none;
+  }
+
+  .navbar-collapse ul,.navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-dark .navbar-nav .nav-link {
+    padding: 10px;
+  }
+
+  .ms-1 {
+    margin-left: 0!important; 
+  }
+
+  .me-3 {
+    margin-right: 0!important; 
+  }
+  .navbar-toggler:focus,
+  .navbar-toggler:active,
+  .navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+</style>
+<body>
+  <nav id="mainNavbar" class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-3 me-4" href="#">Mess Management</a>
+      <button class="navbar-toggler border border-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon border border-dark"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link me-3 ms-1" aria-current="page" href="#"><i class="fa fa-home me-1 nav-icon" aria-hidden="true"></i>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ms-1" href="#"><i class="fa fa-bar-chart me-1 nav-icon" aria-hidden="true"></i>Summary</a>
+          </li>
+        </ul>
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link me-3" href="#"><i class="fa fa-user-circle-o me-1 nav-icon" aria-hidden="true"></i>RGB</a>
+          <a class="nav-link me-3 ms-1" href="login.html"><i class="fa fa-sign-out me-1 nav-icon" aria-hidden="true"></i>Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="datewrapper">
+    <h1 class="date">10/12/2020</h1>
+    <div id="datepicker"></div>
+  </div>
+
+  <div class="databox">
+    <div class="datacontainer"><div class="breakfast meal">Breakfast</div><div class="detbox"><span class="bdata data">50</span><a class="det">Details</a></div></div>
+    <div class="datacontainer"><div class="lunch meal">Lunch</div><div class="detbox"><span class="ldata data">50</span><a class="det">Details</a></div></div>
+    <div class="datacontainer"><div class="dinner meal">Dinner</div><div class="detbox"><span class="ddata data">50</span><a class="det">Details</a></div></div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $(function () {
+      $(document).scroll(function () {
+        var $nav = $("#mainNavbar");
+        $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+      });
+    });
+
+    $(function() {
+      $('#datepicker').datepicker( {
+        dateFormat: 'dd/mm/yy'
+      });
+    });
+
+    $("#datepicker").datepicker({
+      dateFormat: 'dd/mm/yy',
+      onSelect: function () {
+        $(".date").text($(this).val());
+      }
+    });
+
+    $(".date").text($("#datepicker").val());
+
+    $(".submit").click(function(){
+      console.log("submit");
+    })
+
+    $(".breakfast").click(function(){
+
+      if($(this).hasClass("selected"))
+      {
+        console.log("breakfast");
+        $(this).removeClass("selected");
+      }
+      else
+      {
+        console.log("breakfast cancelled");
+        $(this).addClass("selected");
+      }
+    })
+
+
+  </script>
+
+</body>
+</html>
