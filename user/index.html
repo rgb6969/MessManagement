@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <title>Mess Management</title>
+  <link rel="icon" href="favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link  href="http://fonts.googleapis.com/css?family=Cabin:400,500,600,bold" rel="stylesheet" type="text/css">
+    <link  href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold" rel="stylesheet" type="text/css">
+</head>
+<style>
+  body {
+    background: url(lmo.jpg);
+    background-repeat: no-repeat;  
+    background-position: 0% 0%;
+    background-size: 100vw 100vh;
+  }
+
+  nav {
+    background: #f05454;
+  }
+  .navbar-dark .navbar-nav .nav-link{
+    color:#fff;
+    font-size: 17px;
+    padding :5px 0px;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover{
+    color:#fcf8ec;
+  }
+  .navbar-dark .navbar-brand{
+    color:#fcf8ec;
+  }
+  .navbar-dark .navbar-brand:hover{
+    color:#fcf8ec;
+  }
+
+  .datewrapper {
+    color: white;
+    align-items: center;
+    text-align: center;
+    margin-left: 20vw;
+    margin-top: 20vh;
+    float: left;
+  }
+
+  .date {
+    margin-bottom: 30px;
+    font-family: 'TradeGothicLTStd-BdCn20', 'PT Sans Narrow';
+  }
+
+  .ui-datepicker-current-day .ui-state-active { background: #212529; border: none; color: white; text-align: center; }
+
+  .databox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    margin-left: 44vw;
+    margin-top: 25vh;
+  }
+
+  div.ui-datepicker{
+    font-size:1vw;
+  }
+
+  .btn {
+    border: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    background-color: #c59e51;
+    padding: 17px 60px;
+    margin: 10px auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+  }
+
+  .btn span {
+    position: relative; 
+    z-index: 1;
+  }
+
+  .btn:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 490%;
+    width: 140%;
+    background: #9ba3a6;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  }
+
+  .btn:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+
+  .button {
+  position: relative;
+  display: inline-block;
+  -webkit-border-radius: 10px;
+  -webkit-box-shadow:
+    0px 3px rgba(128, 128, 128, 1),
+    0px 4px rgba(118, 118, 118, 1),
+    0px 5px rgba(108, 108, 108, 1);
+  -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+  cursor: pointer;
+  margin: 15px;
+  width: 20vw;
+}
+
+.button span {
+  background-color: #E8E8E8;
+  display: inline-block;
+  padding: 10px 40px 10px 60px;
+  color: #3A474D;
+  text-transform: uppercase;
+  font-family: 'TradeGothicLTStd-BdCn20', 'PT Sans Narrow';
+  font-weight: 700;
+  font-size: 33px;
+  border-radius:15px;
+  text-shadow: 0px 1px #fff, 0px -1px #262F33;
+  width: 20vw;
+  letter-spacing: 0.05em;
+}
+
+ 
+ 
+.button:active {
+  -webkit-box-shadow:
+    0px 3px rgba(128, 128, 128, 1),
+    0px 4px rgba(118, 118, 118, 1),
+    0px 5px rgba(108, 108, 108, 1),
+    0px 6px rgba(98, 98, 98, 1),
+    0px 7px rgba(88, 88, 88, 1),
+    0px 8px rgba(78, 78, 78, 1),
+    0px 10px 2px 0px rgba(128, 128, 128, .6);
+}
+
+.button:active span {
+  -webkit-transform: translate(0, 5px);
+}
+
+.button span:after {
+  content: ">";
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 40px;
+  top: 11px;
+  font-family: 'Cabin';
+  font-weight: 700;
+  color: #AEBF3B;
+  text-shadow: 0px 1px #fff, 0px -1px #97A63A;
+  font-size: 30px;
+}
+
+
+
+
+  @media (max-width: 1050px) {
+    div.ui-datepicker{
+     font-size:1.3vw;
+   }
+
+   .datewrapper {
+    margin-left: 19vw;
+  }
+}
+
+@media (max-width: 850px) {
+  div.ui-datepicker{
+    font-size:1.5vw;
+  }
+}
+@media (max-width: 650px) {
+  div.ui-datepicker{
+    font-size:1.8vw;
+  }
+  .datewrapper {
+    margin-left: 17vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-img-top {
+    width: 100%;
+    height: 250px;
+  }
+
+  .nav-icon {
+    display: none;
+  }
+
+  .navbar-collapse ul,.navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-dark .navbar-nav .nav-link {
+    padding: 10px;
+  }
+
+  .ms-1 {
+    margin-left: 0!important; 
+ }
+
+ .me-3 {
+    margin-right: 0!important; 
+  }
+  .navbar-toggler:focus,
+  .navbar-toggler:active,
+  .navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+</style>
+<body>
+ <nav id="mainNavbar" class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand ms-3 me-4" href="#">Mess Management</a>
+    <button class="navbar-toggler border border-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon border border-dark"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link me-3 ms-1" aria-current="page" href="#"><i class="fa fa-home me-1 nav-icon" aria-hidden="true"></i>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link ms-1" href="#"><i class="fa fa-bar-chart me-1 nav-icon" aria-hidden="true"></i>Summary</a>
+        </li>
+      </ul>
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link me-3" href="#"><i class="fa fa-user-circle-o me-1 nav-icon" aria-hidden="true"></i>RGB</a>
+        <a class="nav-link me-3 ms-1" href="login.html"><i class="fa fa-sign-out me-1 nav-icon" aria-hidden="true"></i>Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="datewrapper">
+  <h1 class="date">10/12/2020</h1>
+  <div id="datepicker"></div>
+</div>
+
+<div class="databox">
+  <a class="button">
+        <span class="meal bf">Breakfast</span>
+    </a><a class="button">
+        <span class="meal lu">Lunch</span>
+    </a>
+   <a class="button">
+        <span class="meal di">Dinner</span>
+    </a>
+  <button class="btn submit"><span>Submit</span></button>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $(function () {
+    $(document).scroll(function () {
+      var $nav = $("#mainNavbar");
+      $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+    });
+  });
+
+  $(function() {
+    $('#datepicker').datepicker( {
+      dateFormat: 'dd/mm/yy'
+    });
+  });
+
+  $("#datepicker").datepicker({
+    dateFormat: 'dd/mm/yy',
+    onSelect: function () {
+      $(".date").text($(this).val());
+    }
+  });
+
+  $(".date").text($("#datepicker").val());
+
+  $(".submit").click(function(){
+    console.log("submit");
+  })
+
+var bf = document.querySelector('.bf');
+var lu = document.querySelector('.lu');
+var di = document.querySelector('.di');
+var bfscore=0,luscore=0,discore=0;
+async function bfmeal() {
+ if(bfscore==0)
+{
+  bf.style.background="#AEBF3B";
+  bfscore=1;
+}
+else{
+ bf.style.background="#E8E8E8";
+ bfscore=0;
+} 
+}
+
+async function lumeal() {
+ if(luscore==0)
+{
+  lu.style.background="#AEBF3B";
+  luscore=1;
+}
+else{
+ lu.style.background="#E8E8E8";
+ luscore=0;
+} 
+}
+async function dimeal() {
+ if(discore==0)
+{
+  di.style.background="#AEBF3B";
+  discore=1;
+}
+else{
+ di.style.background="#E8E8E8";
+ discore=0;
+} 
+}
+
+bf.addEventListener('click', bfmeal);
+lu.addEventListener('click', lumeal);
+di.addEventListener('click', dimeal);
+
+
+</script>
+
+</body>
+</html>
